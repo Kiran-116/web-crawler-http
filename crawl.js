@@ -1,0 +1,15 @@
+function normalizeURL(urlString) {
+    const urlObj = new URL(urlString);
+    const hostpath = `${urlObj.hostname}${urlObj.pathname}`
+
+    if (hostpath.length > 0 && hostpath.slice(-1) === '/') {
+        return hostpath.slice(0, -1);               // Everything except the last char
+    }
+
+    return hostpath
+}
+
+module.exports = {
+    normalizeURL,
+    
+}
